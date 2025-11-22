@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI Document Structuring</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #1f1c2c, #928dab);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 40px;
+      width: 100%;
+      max-width: 600px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+      color: #fff;
+    }
+
+    h2 {
+      font-weight: 600;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 14px;
+      color: #ddd;
+    }
+
+    .form-control {
+      background: rgba(255,255,255,0.2);
+      border: none;
+      color: #fff;
+    }
+
+    .form-control::file-selector-button {
+      background: #0b5fff;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, #0b5fff, #007bff);
+      border: none;
+      border-radius: 12px;
+      padding: 12px 20px;
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(90deg, #094fcc, #0056b3);
+      transform: scale(1.05);
+    }
+
+    .loading-spinner {
+      display: none;
+      margin-top: 20px;
+    }
+
+    .branding {
+      font-size: 12px;
+      color: #aaa;
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="glass-card">
+    <h2>📄 AI Document Structuring</h2>
+    <p>Upload your PDF and get a structured Excel file with Key, Value, and Comments.</p>
+
+    <form method="POST" enctype="multipart/form-data" onsubmit="showSpinner()">
+      <div class="mb-3">
+        <input class="form-control" type="file" name="file" accept=".pdf" required>
+      </div>
+      <div class="d-grid">
+        <button type="submit" class="btn btn-primary">Upload & Convert</button>
+      </div>
+    </form>
+
+    <div class="loading-spinner text-center">
+      <div class="spinner-border text-light" role="status"></div>
+      <p class="mt-2 text-light">Processing your file…</p>
+    </div>
+
+    <div class="branding">Built by Prakhar • Powered by Prakhar</div>
+  </div>
+
+  <script>
+    function showSpinner() {
+      document.querySelector('.loading-spinner').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
